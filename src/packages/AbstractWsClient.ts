@@ -14,7 +14,7 @@ export abstract class AbstractWsClient extends EventEmitter {
 
     this.key = key;
 
-    if (!key) {
+    if (!key && typeof process !== 'undefined' && process.env) {
       this.key = process.env.DEEPGRAM_API_KEY as string;
     }
 

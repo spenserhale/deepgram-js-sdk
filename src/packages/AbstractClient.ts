@@ -15,7 +15,7 @@ export abstract class AbstractClient {
   constructor(protected key: string, protected options: DeepgramClientOptions) {
     this.key = key;
 
-    if (!key) {
+    if (!key && typeof process !== 'undefined' && process.env) {
       this.key = process.env.DEEPGRAM_API_KEY as string;
     }
 
